@@ -1,0 +1,8 @@
+com\gao\ProviderConfig.class
+com\gao\ConsumerConfig.class
+com\gao\spring\MyNamespaceHandler.class
+com\gao\ServerConfig.class
+com\gao\spring\bean\ProviderBean.class
+com\gao\spring\bean\ServerBean.class
+com\gao\spring\MyBeanDefinitionParser.class
+com\gao\spring\bean\ConsumerBean.class
