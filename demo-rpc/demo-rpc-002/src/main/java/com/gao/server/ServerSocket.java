@@ -1,5 +1,9 @@
 package com.gao.server;
 
+import com.gao.codec.RpcDecoder;
+import com.gao.codec.RpcEncoder;
+import com.gao.msg.Request;
+import com.gao.msg.Response;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
@@ -40,8 +44,10 @@ public class ServerSocket implements Runnable {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ch.pipeline().addLast(
-                                    // 解码器
-                                    // 将Response对象编码为字节流
+                                    // 解码器、
+                                    new RpcDecoder(Request.class),
+                                    // 编码器
+                                    new RpcEncoder(Response.class),
                                     // 处理的业务逻辑
                                     new MyServerHandler()
                             );
