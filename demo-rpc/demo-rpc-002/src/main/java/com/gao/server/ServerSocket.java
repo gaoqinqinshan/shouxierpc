@@ -40,12 +40,11 @@ public class ServerSocket implements Runnable {
                         @Override
                         protected void initChannel(SocketChannel ch) {
                             ch.pipeline().addLast(
-                                    // 将字节流解码为Request对象
+                                    // 解码器
                                     // 将Response对象编码为字节流
                                     // 处理的业务逻辑
                                     new MyServerHandler()
                             );
-
                         }
                     });
 
